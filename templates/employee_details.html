@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- DataTales Example -->
+
+    <div class="row">
+
+        <!-- First Column -->
+        <div class="col-lg-4">
+
+            <!-- Custom Text Color Utilities -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Employee Details</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="text-gray-900 p-3 m-0">Firstname : {{employee.first_name}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-gray-900 p-3 m-0">Lastname : {{employee.last_name}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-gray-900 p-3 m-0">Role : {{employee.role}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-gray-900 p-3 m-0">Department : {{employee.department}}</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <p class="text-gray-900 p-3 m-0">Phone no : {{employee.phone_number}}</p>
+                    <p class="text-gray-900 p-3 m-0">Email : {{employee.email}}</p>
+                    
+                    
+                    <a href="{% url 'employee-delete' pk=employee.pk  %}" class="btn btn-primary">
+                        Delete
+                     </a>
+                     <a href="{% url 'employee-update' pk=employee.pk  %}" class="btn btn-primary">
+                        Update
+                     </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    <!-- Page level plugins -->
+    
+{% endblock %}
