@@ -125,3 +125,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+TWILIO_ACCOUNT_SID = os.environ.get("SID")
+
+TWILIO_AUTH_TOKEN = os.environ.get("AUTH")
