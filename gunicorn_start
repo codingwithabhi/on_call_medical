@@ -1,0 +1,34 @@
+#!/bin/bash
+#name of the application
+NAME="on_call_medical"
+# Django project directory
+DJANGODIR=/home/ubuntu/on_call_medical
+# we will communicte using this unix socket
+SOCKFILE=/home/ubuntu/on_call_medical/run/gunicorn.sock
+# the user to run as
+USER=ubuntu
+# the group to run as
+GROUP=ubuntu
+# how many worker processes should Gunicorn spawn
+NUM_WORKERS=3
+# which settings file should Django use
+DJANGO_SETTINGS_MODULE=on_call.settings
+# WSGI module name
+DJANGO_WSGI_MODULE=on_call.wsgi
+echo "Starting $NAME as `whoami`"
+# Activate the virtual environment
+cd $DJANGODIR
+source venv/bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec gunicorn ${DJANGO_WSGI_MODULE}:application \
+--name $NAME \
+--workers $NUM_WORKERS \
+--user=$USER --group=$GROUP \
+--bind=unix:$SOCKFILE \
+
