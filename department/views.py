@@ -85,7 +85,7 @@ def _employee_edit(request, employee):
 def employee_delete(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
     employee.delete()
-    msg = pgettext_lazy("Dashboard message", "Removed employee %s") % (employee.name)
+    msg = pgettext_lazy("Dashboard message", "Removed employee %s") % (employee.first_name)
     messages.success(request, msg)
     return redirect("employee-list")
 
