@@ -22,6 +22,7 @@ urlpatterns = [
     path('dashboard/', include("department.urls")),
     path('account/', include("account.urls")),
     path('sms/',include("sms.urls")),
+    path('',include("home_page.urls"))
 ]
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

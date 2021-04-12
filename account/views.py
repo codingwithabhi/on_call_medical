@@ -25,10 +25,10 @@ def login_user(request):
         user = authenticate(request, username = username, password = password) 
         if user is not None: 
             login(request, user) 
-            messages.success(request, f' wecome {username} !!') 
+            messages.success(request, f' welcome {username} !!') 
             return redirect('index') 
         else: 
-            messages.info(request, f'account done not exit plz sign in') 
+            messages.info(request, f'account does not exit plz sign in') 
     form = LoginForm()
     ctx = {"form":form}
     return render(request,'login.html',ctx)
@@ -43,5 +43,4 @@ def logout_user(request):
     logout(request)
     form = LoginForm()
     ctx = {"form":form}
-    print("ghjgjkh")
     return render(request,'login.html',ctx)
