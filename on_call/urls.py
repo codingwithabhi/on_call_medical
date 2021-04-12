@@ -21,4 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', include("department.urls")),
     path('account/', include("account.urls")),
+    path('sms/',include("sms.urls")),
 ]
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# ... the rest of your URLconf goes here ...
+
+urlpatterns += staticfiles_urlpatterns()
