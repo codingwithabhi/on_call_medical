@@ -17,6 +17,7 @@ class DepartmentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(DepartmentForm, self).__init__(*args, **kwargs)
         for key in self.fields:
+            self.fields[key].required = True
             self.fields[key].widget.attrs['class'] = 'form-control'
 
 
@@ -30,6 +31,7 @@ class EmployeeForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(EmployeeForm, self).__init__(*args, **kwargs)
-        print(dir(self.fields))
         for key in self.fields:
+            if not key=='address':
+                self.fields[key].required = True
             self.fields[key].widget.attrs['class'] = 'form-control'

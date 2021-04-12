@@ -4,7 +4,7 @@ from .forms import DepartmentForm,EmployeeForm
 from django.contrib import messages
 from django.utils.translation import pgettext_lazy
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -13,8 +13,10 @@ def index(request):
     ctx = {
         "total_employee":Employee.objects.count(),
         "total_department":Department.objects.count(),
+        "total_staff":User.objects.count(),
         "total_pr":4,
         "absent_today":3,
+        "employee_list":Employee.objects.all(),
         
     }
     return render(request, 'home.html',ctx)
@@ -58,7 +60,6 @@ def department_details(request, pk):
 
 def employee_list(request):
     ctx = {"employee_list":Employee.objects.all()}
-    print(ctx)
     return render(request,'employee_list.html',ctx)
 
 def employee_update(request, pk):
@@ -71,6 +72,7 @@ def employee_create(request):
 
 def _employee_edit(request, employee):
     form = EmployeeForm(request.POST or None, instance=employee)
+    print(form.errors)
     if form.is_valid():
         form.save()
         msg = pgettext_lazy("Dashboard message", "Saved employee")
@@ -93,3 +95,7 @@ def employee_details(request, pk):
     print(employee.full_name)
     ctx = {"employee": employee}
     return render(request, "employee_details.html", ctx)
+
+def staff_list(request):
+    ctx = {"staff_list":User.objects.all()}
+    return render(request,'staff_list.html',ctx)
