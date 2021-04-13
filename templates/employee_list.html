@@ -16,24 +16,25 @@
             </a>
             </h6>
         </div>
-        <div class="card-body">
-                      <div class="row">
-                        {% for employee in employee_list %}
-                          <div class="col-sm-3">
-                             <div class="card" style="width:70%">
-                                <img class="card-img-top" src="{% static 'img/undraw_profile.svg' %}" alt="Card image" style="width:50%;  margin: 0 auto;">
-                                    <div class="card-body">
-                                    <h4 class="card-title">{{employee.full_name|slice:":14"}}</h4>
-                                    <p class="card-text">Role : {{employee.role}}</p>
-                                    <a href="{% url 'employee-details' pk=employee.pk %}" class="btn btn-primary">See Profile</a>
-                                </div>
-                              </div>
-                          </div>
-                          <br>  <br>
-                          {% endfor %}
+       <div class="card-body">
+            <div class="row">
+              {% for employee in employee_list %}
+                <div class="col-sm-3">
+                  <div class="card" style="width:100%; margin: 0 auto;">
+                      <img class="card-img-top" src="{% static 'img/undraw_profile.svg' %}" alt="Card image" style="width:40%;  margin: 0 auto;">
+                      <div class="card-body">
+                      <center>
+                        <h4 class="card-title">{{employee.full_name|slice:":10"}}</h4>
+                        <p class="card-text">Role : {{employee.role}}</p>
+                        <a href="{% url 'employee-details' pk=employee.pk %}" class="btn btn-primary">See Profile</a>
                       </div>
-                      
-                   
+                      <center>
+                    </div>
+                </div>
+                <br> </br> <br>
+                <div></div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
