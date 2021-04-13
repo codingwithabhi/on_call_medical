@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "a_static")
+    os.path.join(BASE_DIR, "a_static"),
     os.path.join(BASE_DIR, 'medical-ai', "build", "static"),
 )
 
