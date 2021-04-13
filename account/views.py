@@ -3,20 +3,22 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
+from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, SignUpForm
 
 # Create your views here.
 
+@login_required(login_url="/account/login/")
 def signup_user(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        print(form.errors)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('staff-list')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
 
 def login_user(request):
     if request.method == 'POST': 
@@ -33,15 +35,17 @@ def login_user(request):
     ctx = {"form":form}
     return render(request,'login.html',ctx)
 
+
+
+@login_required(login_url="/account/login/")
 def user_details(request):
     return render(request,'department_list.html')
+
 
 def forgot_password(request):
     return render(request,'department_list.html')
 
+
 def logout_user(request):
     logout(request)
-    form = LoginForm()
-    ctx = {"form":form}
-    print("ghjgjkh")
-    return render(request,'login.html',ctx)
+    return redirect('login')

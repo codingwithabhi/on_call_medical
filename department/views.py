@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.utils.translation import pgettext_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages 
 
 
 # Create your views here.
@@ -21,19 +22,26 @@ def index(request):
     }
     return render(request, 'home.html',ctx)
 
+
+@login_required(login_url="/account/login/")
 def department_list(request):
     ctx = {"department_list":Department.objects.all()}
-    print(ctx)
     return render(request,'department_list.html',ctx)
 
+
+@login_required(login_url="/account/login/")
 def department_update(request, pk):
     department = get_object_or_404(Department, pk=pk)
     return _department_edit(request, department)
 
+
+@login_required(login_url="/account/login/")
 def department_create(request):
     department = Department()
     return _department_edit(request, department)
 
+
+@login_required(login_url="/account/login/")
 def _department_edit(request, department):
     form = DepartmentForm(request.POST or None, instance=department)
     if form.is_valid():
@@ -45,6 +53,7 @@ def _department_edit(request, department):
     return render(request, "department_form.html", ctx)
 
 
+@login_required(login_url="/account/login/")
 def department_delete(request, pk):
     department = get_object_or_404(Department, pk=pk)
     department.delete()
@@ -53,26 +62,37 @@ def department_delete(request, pk):
     return redirect("department-list")
 
 
+@login_required(login_url="/account/login/")
 def department_details(request, pk):
     department = get_object_or_404(Department, pk=pk)
     ctx = {"department": department}
     return render(request, "department_details.html", ctx)
 
+
+
+@login_required(login_url="/account/login/")
 def employee_list(request):
     ctx = {"employee_list":Employee.objects.all()}
     return render(request,'employee_list.html',ctx)
 
+
+@login_required(login_url="/account/login/")
 def employee_update(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
     return _employee_edit(request, employee)
 
+
+
+@login_required(login_url="/account/login/")
 def employee_create(request):
     employee = Employee()
     return _employee_edit(request, employee)
 
+
+
+@login_required(login_url="/account/login/")
 def _employee_edit(request, employee):
     form = EmployeeForm(request.POST or None, instance=employee)
-    print(form.errors)
     if form.is_valid():
         form.save()
         msg = pgettext_lazy("Dashboard message", "Saved employee")
@@ -82,6 +102,8 @@ def _employee_edit(request, employee):
     return render(request, "employee_form.html", ctx)
 
 
+
+@login_required(login_url="/account/login/")
 def employee_delete(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
     employee.delete()
@@ -90,12 +112,16 @@ def employee_delete(request, pk):
     return redirect("employee-list")
 
 
+
+@login_required(login_url="/account/login/")
 def employee_details(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
-    print(employee.full_name)
     ctx = {"employee": employee}
     return render(request, "employee_details.html", ctx)
 
+
+
+@login_required(login_url="/account/login/")
 def staff_list(request):
     ctx = {"staff_list":User.objects.all()}
     return render(request,'staff_list.html',ctx)
