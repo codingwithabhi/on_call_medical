@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'account.apps.AccountConfig',
     'department.apps.DepartmentConfig',
+    'sms',                                       
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'on_call.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates',os.path.join(BASE_DIR, 'medical-ai')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,8 +123,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "a_static"),
+    os.path.join(BASE_DIR, 'medical-ai', "build", "static"),
+    os.path.join(BASE_DIR, 'medical-ai', "build", "assets"),
 )
 
 TWILIO_ACCOUNT_SID = os.environ.get("SID")
