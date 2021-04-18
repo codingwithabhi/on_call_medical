@@ -47,7 +47,7 @@ export default function Home() {
 					</div>
 					<div className="col-md-12 col-lg-6 p-0">
 						<div className="bene-img">
-							<img src="assets/img/our-benefits.png" alt="Our Benefits" className="img-fluid"/>
+							<img src="static/img/our-benefits.png" alt="Our Benefits" className="img-fluid"/>
 						</div>
 					</div>
 				</div>
@@ -56,7 +56,7 @@ export default function Home() {
 				<div className="row m-0">
 					<div className="col-md-12 col-lg-6 p-0">
 						<div className="speak-expert-img">
-							<img src="assets/img/speak-expert.png" alt="Speak to Expert" className="img-fluid"/>
+							<img src="static/img/speak-expert.png" alt="Speak to Expert" className="img-fluid"/>
 						</div>
 					</div>
 					<div className="col-md-12 col-lg-6 speak-expert-text">
@@ -101,7 +101,7 @@ export default function Home() {
 					</div>
 					<div className="col-md-12 col-lg-6 p-0">
 						<div >
-							<img src="assets/img/login-bg.jpg" alt="Speak to Expert" className="img-fluid"/>
+							<img src="static/img/login-bg.jpg" alt="Speak to Expert" className="img-fluid"/>
 						</div>
 					</div>
 				</div>
