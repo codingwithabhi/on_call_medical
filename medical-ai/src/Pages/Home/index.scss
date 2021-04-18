@@ -1,6 +1,11 @@
 section.features {
     margin-bottom: 20px;
 }
+.btn-primary {
+    color: #fff;
+    background-color: rgb(42, 120, 134) !important;
+    border-color: rgb(42, 120, 134) !important;
+}
 section.features ul {
     display: flex;
     justify-content: space-around;
@@ -91,24 +96,13 @@ section.features a:hover {
 section.features a:hover:after {
   height: 4px;
 }
-.benefits-text {
-    /*padding: 60px 20px 30px 90px;*/
-}
 .speak-expert-text {
-    padding: 60px 90px 30px 50px;
-    background-color: #47466c;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.benefits-text h4::before {
-    content: "‎✔";
-    background-color: #e23e56;
-    color: rgb(255, 255, 255);
-    margin-right: 6px;
-    padding: 2px 6px;
-    border-radius: 3px;
+    padding: 60px 90px 30px 50px !important;
+    background-color: #47466c !important;
+    color: #fff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
 }
 .btn-secondary {
     background-color: #fff;
@@ -135,4 +129,86 @@ section.features a:hover:after {
 .col-md-4{
     padding-right: 0px !important;
     padding-left: 0px !important;
+}
+.top-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ff9600;
+    text-transform: uppercase;
+}
+.benefits-text {
+    padding: 60px 20px 30px 22px !important;
+}
+@media only screen and (min-width: 699px){
+    .benefits-text {
+        padding: 60px 20px 30px 90px !important;
+    }
+}
+
+.section-title {
+    font-size: 36px;
+    color: #0e8a8a;
+    font-weight: 600;
+    font-family: 'Flamante-sten';
+    text-transform: uppercase;
+}
+.section-title-1 {
+    font-size: 36px;
+    color: #ff9600;
+    font-weight: 600;
+    font-family: 'Flamante-sten';
+    text-transform: uppercase;
+}
+@media only screen and (max-width: 1399px){
+    .section-title {
+        font-size: 25px;
+    }
+}
+
+.benefits-text .para-text {
+    font-size: 12px;
+    line-height: 20px;
+}
+.benefits-text h4 {
+    font-size: 15px;
+    font-family: 'Flamante-sten';
+    color: #0e8a8a;
+}
+.m-0 {
+    margin: 0!important;
+}
+.benefits-text h4::before {
+    content: "‎✔" !important;
+    background-color: rgb(255, 150, 0) !important;
+    color: rgb(255, 255, 255)!important;
+    margin-right: 6px !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+@media (min-width: 992px){
+    .col-lg-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 768px){
+    .col-md-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.submit-form{
+    background-color: #47466c !important;
+  border: none;
+  color: white !important;
+  padding: 13px 70px !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
