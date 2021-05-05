@@ -8,7 +8,7 @@ export default function Footer() {
       <footer className="footer">
           <div className="footer-bottom">
               <div className="container">
-                  <div className="row d-flex col-md-12">
+                  <div>
                       <p style={{textAlign:"center"}}>Copyright  © 2021 | All rights reserved by Dr Notes</p>
                   </div>
               </div>

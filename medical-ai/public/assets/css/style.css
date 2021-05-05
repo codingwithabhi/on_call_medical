@@ -94,7 +94,7 @@ body {
 	background-color: #fff;
 	color:#363636;
     font-family: 'Poppins', sans-serif;
-	font-size: 0.9375rem;
+	font-size: 16px;
     height: 100%;
 	overflow-x: hidden;
 }
@@ -7175,7 +7175,7 @@ html.menu-opened body {
 }
 @media only screen and (max-width: 767.98px) {
 	body {
-		font-size: 0.875rem;
+		font-size: 16px;
 	}
 	h1, .h1 {
 		font-size: 2rem;
@@ -7281,7 +7281,7 @@ html.menu-opened body {
 		text-transform: uppercase;
 	}
 	.home-banner {
-		background: #032c4f;
+		background-image: url('../img/home-bg.png')
 	}
 	.day-slot li span {
 		font-size: 16px;
@@ -7574,7 +7574,7 @@ html.menu-opened body {
 
 @media only screen and (max-width: 575.98px) {
 	body {
-		font-size: 0.8125rem;
+		font-size: 16px;
 	}
 	h1, .h1 {
 		font-size: 1.75rem;

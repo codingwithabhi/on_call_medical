@@ -60,7 +60,7 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="col-md-12 col-lg-6 speak-expert-text">
-						<h2 className="section-title">Speak to an expert now</h2>
+						<h2 className="section-title" style={{color:'white'}}>Speak to an expert now</h2>
 						<p className="mt-2">Your first consultation is on us. We understand the importance of taking the first step.</p>
 
 						<p className="mt-2">That’s why your first consultation with us is FREE.</p>
@@ -72,7 +72,7 @@ export default function Home() {
 					<div className="col-md-12 col-lg-6 benefits-text">
 						<h2 className="section-title-1">Contact Us</h2>
 						<p className="mb-4">To receive latest offers, when an unknown printer took a galley of type</p>
-						<h3 style={{color:"gray",marginBottom:"25px"}}>info@drnotes.co</h3>
+						<p style={{color:"gray",marginBottom:"25px"}}>info@drnotes.co</p>
 						<div className="row">
 							<div className="col-md-6 mb-3">
 								<div class="input-group mb-3">

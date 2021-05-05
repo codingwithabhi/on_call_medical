@@ -1,3 +1,4 @@
+
 section.features {
     margin-bottom: 20px;
 }
@@ -5,6 +6,11 @@ section.features {
     color: #fff;
     background-color: rgb(42, 120, 134) !important;
     border-color: rgb(42, 120, 134) !important;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #47466c !important;
+    border-color: #47466c !important;
 }
 section.features ul {
     display: flex;
@@ -149,14 +155,12 @@ section.features a:hover:after {
     font-size: 36px;
     color: #0e8a8a;
     font-weight: 600;
-    font-family: 'Flamante-sten';
     text-transform: uppercase;
 }
 .section-title-1 {
     font-size: 36px;
     color: rgb(42, 120, 134);
     font-weight: 600;
-    font-family: 'Flamante-sten';
     text-transform: uppercase;
 }
 @media only screen and (max-width: 1399px){
@@ -166,24 +170,15 @@ section.features a:hover:after {
 }
 
 .benefits-text .para-text {
-    font-size: 12px;
+    font-size: 16x;
     line-height: 20px;
 }
 .benefits-text h4 {
-    font-size: 15px;
-    font-family: 'Flamante-sten';
+    font-size: 16px;
     color: #0e8a8a;
 }
 .m-0 {
     margin: 0!important;
-}
-.benefits-text h4::before {
-    content: "‎✔" !important;
-    background-color: rgb(42, 120, 134) !important;
-    color: rgb(255, 255, 255)!important;
-    margin-right: 6px !important;
-    padding: 2px 6px !important;
-    border-radius: 3px !important;
 }
 .mb-3, .my-3 {
     margin-bottom: 1rem!important;
@@ -203,6 +198,17 @@ section.features a:hover:after {
     }
 }
 .submit-form{
+    background-color: rgb(42, 120, 134) !important;
+  border: none;
+  color: white !important;
+  padding: 13px 70px !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.submit-form:hover{
     background-color: #47466c !important;
   border: none;
   color: white !important;
