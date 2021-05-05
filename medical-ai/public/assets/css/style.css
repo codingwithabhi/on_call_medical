@@ -7280,9 +7280,6 @@ html.menu-opened body {
 		margin-left: 5px;
 		text-transform: uppercase;
 	}
-	.home-banner {
-		background-image: url('../img/home-bg.png')
-	}
 	.day-slot li span {
 		font-size: 16px;
 		text-transform: unset;
