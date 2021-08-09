@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="container" style="width: 400px;">
+        <h5>Department Name -: {{department}}</h5>
+        <h5>Date -: {{day.date}}</h5>
+    </div>
+    <div style="margin-top: 10px;">
+    
+        <div class="card shadow mb-4"">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Schedule List</h6>
+                <h6 class="m-0 font-weight-bold text-primary text-right">
+                <a href="{% url 'add-schedule-for-day' pk=department.pk day_pk=day.pk %}">
+                    Add
+                </a>
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Employee Name</th>
+                                <th>Start time</th>
+                                <th>End time</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        {% for schedule in schedules %}
+                            <tr>                            
+                                <td>{{schedule.employee}}</td>
+                                <td>
+                                    {{schedule.start_time}}
+                                </td>
+                                <td>{{schedule.end_time}}</td>
+                                <td><a href="{% url 'edit-schedule-for-day' pk=department.pk day_pk=day.pk schedule_pk=schedule.pk %}" class="btn btn-primary">
+                                    Update
+                                 </a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Page level plugins -->
+{% endblock %}
+

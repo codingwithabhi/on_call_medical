@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import sys
+sys.path.append("..")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -40,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'account.apps.AccountConfig',
     'department.apps.DepartmentConfig',
-    'sms',                                       
+    'schedule.apps.ScheduleConfig',
+    'sms',
+    "bootstrap_datepicker_plus",                             
 ]
 
 MIDDLEWARE = [
@@ -130,6 +135,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'medical-ai', "build", "static"),
     os.path.join(BASE_DIR, 'medical-ai', "build", "assets"),
 )
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 TWILIO_ACCOUNT_SID = os.environ.get("SID")
 
