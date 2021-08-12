@@ -21,7 +21,8 @@ def signup_user(request):
 
 
 def login_user(request):
-    if request.method == 'POST': 
+    form = LoginForm(data=request.POST or None)
+    if form.is_valid(): 
         username = request.POST['username'] 
         password = request.POST['password'] 
         user = authenticate(request, username = username, password = password) 
@@ -29,9 +30,8 @@ def login_user(request):
             login(request, user) 
             messages.success(request, f' welcome {username} !!') 
             return redirect('index') 
-        else: 
-            messages.info(request, f'account does not exit plz sign in') 
-    form = LoginForm()
+        else:
+            messages.info(request, f'account does not exit plz sign in')
     ctx = {"form":form}
     return render(request,'login.html',ctx)
 
@@ -43,7 +43,7 @@ def user_details(request):
 
 
 def forgot_password(request):
-    return render(request,'department_list.html')
+    return redirect("login")
 
 
 def logout_user(request):

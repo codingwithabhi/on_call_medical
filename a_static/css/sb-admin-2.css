@@ -491,6 +491,10 @@ mark,
   height: auto;
 }
 
+.errorlist {
+  color: red;
+}
+
 .figure {
   display: inline-block;
 }
