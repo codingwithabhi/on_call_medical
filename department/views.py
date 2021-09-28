@@ -92,7 +92,7 @@ def employee_create(request):
 
 @login_required(login_url="/account/login/")
 def _employee_edit(request, employee):
-    form = EmployeeForm(request.POST or None, instance=employee)
+    form = EmployeeForm(request.POST or None, request.FILES or None, instance=employee)
     if form.is_valid():
         form.save()
         msg = pgettext_lazy("Dashboard message", "Saved employee")

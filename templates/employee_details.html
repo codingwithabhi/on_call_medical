@@ -20,6 +20,9 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+                        {% if employee.photo %}
+                            <img class="card-img-top" src="{{employee.photo.url}}" alt="Card image" style="margin: 0 auto;">
+                        {% endif %}
                         <div class="col-sm-12">
                             <p class="text-gray-900 p-3 m-0">Firstname : {{employee.first_name}}</p>
                         </div>
@@ -45,10 +48,6 @@
                      <a href="{% url 'employee-update' pk=employee.pk  %}" class="btn btn-primary">
                         Update
                      </a>
-                     <a href="{% url 'employee-create' %}" class="btn btn-primary">
-                        Create
-                     </a>
-                    
                 </div>
             </div>
         </div>

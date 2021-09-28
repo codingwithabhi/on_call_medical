@@ -9,47 +9,40 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">staff List</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Staff List</h6>
             <h6 class="m-0 font-weight-bold text-primary text-right">
             <a href="{% url 'signup' %}">
                 Add
             </a>
             </h6>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Created On</th>
-                            
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Created On</th>
-                        </tr>
-                    </tfoot>
-                  <tbody>
-                      {% for staff in staff_list %}
-                      
-                                 <tr>                            
-                                <td>
-                                   <p>
-                                        {{staff.first_name}}
-                                    </p>
-                                </td>
-                                <td>{{staff.last_name}}</td>
-                                <td>{{staff.email}}</td>
-                            </tr>
-                        
-                      {% endfor %}
-                  </tbody>
-                </table>
+       <div class="card-body">
+            <div class="row">
+              {% for staff in staff_list %}
+                <div class="col-sm-3">
+                  <div class="card" style="width:100%; margin-bottom: 5%;">
+                      <div class="card-body">
+                      <center>
+                        <h4 class="card-title">{{staff.username|slice:":10"}}</h4>
+                        <div class="col-sm-12">
+                            <p class="text-gray-900 p-3 m-0">Firstname : {{staff.first_name}}</p>
+                        </div>
+                        <div class="col-sm-12">
+                            <p class="text-gray-900 p-3 m-0">Lastname : {{staff.last_name}}</p>
+                        </div>
+                        <div class="col-sm-12">
+                            <p class="text-gray-900 p-3 m-0">Email : {{staff.email}}</p>
+                        </div>
+                        <div class="col-sm-12">
+                            <p class="text-gray-900 p-3 m-0">Phone : {{staff.phone}}</p>
+                        </div>
+                      </div>
+                      <center>
+                    </div>
+                </div>
+                <br> </br> <br>
+                <div></div>
+                {% endfor %}
             </div>
         </div>
     </div>

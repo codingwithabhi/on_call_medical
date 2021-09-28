@@ -21,7 +21,11 @@
               {% for employee in employee_list %}
                 <div class="col-sm-3">
                   <div class="card" style="width:100%; margin-bottom: 5%;">
-                      <img class="card-img-top" src="{% static 'img/undraw_profile.svg' %}" alt="Card image" style="width:40%;  margin: 0 auto;">
+                    {% if employee.photo %}
+                        <img class="card-img-top" src="{{employee.photo.url}}" alt="Card image" style="width:40%;  margin: 0 auto;height: 200px;">
+                    {% else %}
+                      <img class="card-img-top" src="{% static 'img/undraw_profile.svg' %}" alt="Card image" style="width:40%;  margin: 0 auto;height: 200px;">
+                    {% endif %}
                       <div class="card-body">
                       <center>
                         <h4 class="card-title">{{employee.full_name|slice:":10"}}</h4>

@@ -24,6 +24,7 @@ class DepartmentForm(forms.ModelForm):
 class EmployeeForm(forms.ModelForm): 
     address = forms.CharField(required=False)
     gender = forms.ChoiceField(choices=gender)
+    photo = forms.ImageField(required=False)
     # create meta class 
     class Meta: 
         model = Employee
@@ -34,4 +35,6 @@ class EmployeeForm(forms.ModelForm):
         for key in self.fields:
             if not key=='address':
                 self.fields[key].required = True
+            if key=='photo':
+                self.fields[key].required = False
             self.fields[key].widget.attrs['class'] = 'form-control'

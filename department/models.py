@@ -19,6 +19,7 @@ class Employee(models.Model):
     department = models.ForeignKey(Department,related_name="employees",on_delete=models.CASCADE)
     gender = models.CharField(max_length=20)
     address = models.CharField(max_length=100)
+    photo= models.ImageField(upload_to="images/",blank=True)
 
     def __str__(self) -> str:
         return self.first_name
