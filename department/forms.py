@@ -1,40 +1,43 @@
 from django import forms
-from .models import Department,Employee
+from .models import Department, Employee
+from phonenumber_field.formfields import PhoneNumberField
 
 gender = (
-        ('Male', 'M'),
-        ('Female', 'F'),
-        ('Other', 'O'),
-        )
+    ("Male", "M"),
+    ("Female", "F"),
+    ("Other", "O"),
+)
 
-class DepartmentForm(forms.ModelForm): 
-  
-    # create meta class 
-    class Meta: 
-        model = Department 
+
+class DepartmentForm(forms.ModelForm):
+
+    # create meta class
+    class Meta:
+        model = Department
         fields = "__all__"
 
     def __init__(self, *args, **kwargs):
         super(DepartmentForm, self).__init__(*args, **kwargs)
         for key in self.fields:
             self.fields[key].required = True
-            self.fields[key].widget.attrs['class'] = 'form-control'
+            self.fields[key].widget.attrs["class"] = "form-control"
 
 
-class EmployeeForm(forms.ModelForm): 
+class EmployeeForm(forms.ModelForm):
     address = forms.CharField(required=False)
     gender = forms.ChoiceField(choices=gender)
     photo = forms.ImageField(required=False)
-    # create meta class 
-    class Meta: 
+    phone_number = PhoneNumberField()
+    # create meta class
+    class Meta:
         model = Employee
         fields = "__all__"
 
     def __init__(self, *args, **kwargs):
         super(EmployeeForm, self).__init__(*args, **kwargs)
         for key in self.fields:
-            if not key=='address':
+            if not key == "address":
                 self.fields[key].required = True
-            if key=='photo':
+            if key == "photo":
                 self.fields[key].required = False
-            self.fields[key].widget.attrs['class'] = 'form-control'
+            self.fields[key].widget.attrs["class"] = "form-control"

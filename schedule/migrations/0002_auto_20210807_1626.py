@@ -6,23 +6,23 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('schedule', '0001_initial'),
+        ("schedule", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='day',
-            old_name='start_date',
-            new_name='date',
+            model_name="day",
+            old_name="start_date",
+            new_name="date",
         ),
         migrations.RenameField(
-            model_name='schedule',
-            old_name='end_date',
-            new_name='end_time',
+            model_name="schedule",
+            old_name="end_date",
+            new_name="end_time",
         ),
         migrations.RenameField(
-            model_name='schedule',
-            old_name='start_date',
-            new_name='start_time',
+            model_name="schedule",
+            old_name="start_date",
+            new_name="start_time",
         ),
     ]

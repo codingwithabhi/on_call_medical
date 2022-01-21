@@ -9,26 +9,59 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('department', '0002_department_created'),
+        ("department", "0002_department_created"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Schedule',
+            name="Schedule",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('start_date', models.TimeField()),
-                ('end_date', models.TimeField()),
-                ('employee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='schedules', to='department.employee')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("start_date", models.TimeField()),
+                ("end_date", models.TimeField()),
+                (
+                    "employee",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="schedules",
+                        to="department.employee",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Day',
+            name="Day",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('start_date', models.DateField()),
-                ('department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='scheduled_days', to='department.department')),
-                ('schedules', models.ManyToManyField(related_name='day', to='schedule.Schedule')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("start_date", models.DateField()),
+                (
+                    "department",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="scheduled_days",
+                        to="department.department",
+                    ),
+                ),
+                (
+                    "schedules",
+                    models.ManyToManyField(related_name="day", to="schedule.Schedule"),
+                ),
             ],
         ),
     ]
